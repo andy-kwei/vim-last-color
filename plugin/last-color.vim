@@ -30,14 +30,16 @@ function! SaveLastColor()
     return
   endif
   " Save current colorscheme related settings to color info file
-  let color_info = ['set background=' . &background, 'colorscheme ' . g:colors_name]
+  let color_info = ['colorscheme ' . g:colors_name, 'set background=' . &background]
   call writefile(color_info, g:color_info_filepath)
 endfunction
 
-" Autocommands to load and save color settings
+" Load colorscheme
+call LoadLastColor()
+
+" Autocommand to save color settings
 augroup last_colors
   autocmd!
-  autocmd VimEnter * call LoadLastColor()
   " Note that setting background also causes colorscheme to reload
   autocmd Colorscheme * call SaveLastColor()
 augroup END
