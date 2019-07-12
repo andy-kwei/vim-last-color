@@ -1,3 +1,3 @@
-Last-Color
+Vim-Last-Color
 ==========
-Vim plugin to automatically save and restore colorscheme settings across sessions.
+Vim plugin that saves and restores colorscheme settings across sessions.
