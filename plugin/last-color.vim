@@ -1,4 +1,8 @@
-" Exit if vi compatible or plugin loaded
+" vim-last-color
+" ============================
+" Automatically persist color scheme settings across sessions.
+
+" Exit if vi compatible or plugin already loaded
 if &cp || exists('g:loaded_last_color')
   finish
 endif
@@ -30,7 +34,7 @@ function! SaveLastColor()
     return
   endif
   " Save current colorscheme related settings to color info file
-  let color_info = ['colorscheme ' . g:colors_name, 'set background=' . &background]
+  let color_info = ['set background=' . &background, 'colorscheme ' . g:colors_name]
   call writefile(color_info, g:color_info_filepath)
 endfunction
 
