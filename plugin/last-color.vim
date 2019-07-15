@@ -20,11 +20,11 @@ function! LoadLastColor()
     return
   endif
   " Fall back to color settings from user config defaults
-  if exists('g:last_color_default_colorscheme')
-    exec 'colorscheme ' . g:last_color_default_colorscheme
-  endif
   if exists('g:last_color_default_background')
     exec 'set background=' . g:last_color_default_background
+  endif
+  if exists('g:last_color_default_colorscheme')
+    exec 'colorscheme ' . g:last_color_default_colorscheme
   endif
 endfunction
 
