@@ -1,9 +1,8 @@
 " vim-last-color
-" ============================
-" Automatically persist color scheme settings across sessions.
+" --------------------
+" Save and restore vim color scheme settings across sessions
 
-" Exit if vi compatible or plugin already loaded
-if &cp || exists('g:loaded_last_color')
+if &cp || (v:version < 700) || exists('g:loaded_last_color')
   finish
 endif
 let g:loaded_last_color = 1
