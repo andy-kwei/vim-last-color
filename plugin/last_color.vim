@@ -9,7 +9,8 @@ let g:loaded_last_color = 1
 
 " Store color info file in the plugin directory
 if !exists('g:color_info_filepath')
-  let g:color_info_filepath = escape(expand('<sfile>:p:h:h'), '\') . '/.color_info'
+  let g:color_info_filepath = escape(expand('<sfile>:p:h:h'), '\') .
+        \ '/.color_info'
 endif
 
 function! LoadLastColor()
@@ -33,7 +34,8 @@ function! SaveLastColor()
     return
   endif
   " Save current colorscheme related settings to color info file
-  let color_info = ['set background=' . &background, 'colorscheme ' . g:colors_name]
+  let color_info = ['set background=' . &background,
+                  \ 'colorscheme ' . g:colors_name]
   call writefile(color_info, g:color_info_filepath)
 endfunction
 
@@ -43,6 +45,6 @@ call LoadLastColor()
 " Autocommand to save color settings
 augroup last_colors
   autocmd!
-  " Note that setting background also causes colorscheme to reload
+  " Note that setting the background also causes colorscheme to reload
   autocmd Colorscheme * call SaveLastColor()
 augroup END
